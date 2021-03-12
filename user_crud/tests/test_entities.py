@@ -14,8 +14,8 @@ def user():
 
 def test_user_repr(user):
     
-    expected_text = "User Fulano de Tal, born in 1992-04-16, with e-mail fulano@detal.com at the age of 60."
-    #expected_text = "User Fulano de Tal, with e-mail fulano@detal.com at the age of 60."
+    #expected_text = "User Fulano de Tal, born in 1992-04-16, with e-mail fulano@detal.com at the age of 60."
+    expected_text = "User Fulano de Tal, with e-mail fulano@detal.com at the age of 60."
     current_text = str(user)
 
     assert expected_text == current_text
