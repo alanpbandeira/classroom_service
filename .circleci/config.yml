@@ -1,18 +1,32 @@
 version: 2.1
 
+general:
+  branches:
+    only:
+      - circleci-project-setup
+
 orbs:
   python: circleci/python@0.2.1
 
 jobs:
   build-and-test:
-    executor: python/default
+    working_directory: ~/user_crud
+    
+    #executor: python/default
+    
+    docker:
+      - image: circleci/python:3.8.5
+        environment: 
+          MONGO_DETAILS: mongodb://localhost:27017
+      - image: circleci/mongo
+  
     steps:
       - checkout
       - python/load-cache
       - python/install-deps
       - python/save-cache
       - run:
-          command: ./manage.py test
+          command: pytest
           name: Test
 
 workflows:
