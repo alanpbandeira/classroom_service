@@ -9,11 +9,7 @@ orbs:
   python: circleci/python@0.2.1
 
 jobs:
-  build-and-test:
-    #working_directory: ~/user_crud
-    
-    #executor: python/default
-    
+  build-and-test:    
     docker:
       - image: circleci/python:3.8.5
         environment: 
@@ -22,9 +18,7 @@ jobs:
   
     steps:
       - checkout
-      #- python/load-cache
       - python/install-deps
-      #- python/save-cache
       - run:
           command: cd user_crud && pytest
           name: Test
