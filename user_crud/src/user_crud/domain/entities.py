@@ -34,5 +34,5 @@ class User:
             f"User {self.first_name} {self.last_name}, "
             f"born in {self.birthday.isoformat()}, "
             f"with e-mail {self.email} "
-            f"at the age of {self.age}."
+            # f"at the age of {self.age}."
         )
