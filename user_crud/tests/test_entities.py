@@ -9,14 +9,13 @@ def user():
     return User(
         "Fulano", "de Tal",
         "fulano@detal.com", '123456789',
-        "1992-04-16", 60
+        "1992-04-16", 28
     )
 
 def test_user_repr(user):
     
-    # test_user = User("Fulano", "de Tal", "1992-04-16", 60, True, 5, 2)
-
-    expected_text = "User Fulano de Tal, born in 1992-04-16, with e-mail fulano@detal.com at the age of 60."
+    expected_text = "User Fulano de Tal, born in 1992-04-16, with e-mail fulano@detal.com at the age of 28."
+    #expected_text = "User Fulano de Tal, with e-mail fulano@detal.com at the age of 28."
     current_text = str(user)
 
     assert expected_text == current_text
