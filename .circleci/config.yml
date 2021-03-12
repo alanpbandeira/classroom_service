@@ -10,7 +10,7 @@ orbs:
 
 jobs:
   build-and-test:
-    working_directory: ~/user_crud
+    #working_directory: ~/user_crud
     
     #executor: python/default
     
@@ -26,7 +26,7 @@ jobs:
       - python/install-deps
       - python/save-cache
       - run:
-          command: pytest
+          command: cd user_crud && pytest
           name: Test
 
 workflows:
