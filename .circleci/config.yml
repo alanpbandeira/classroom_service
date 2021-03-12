@@ -1,0 +1,29 @@
+version: 2.1
+
+general:
+  branches:
+    only:
+      - circleci-project-setup
+
+orbs:
+  python: circleci/python@0.2.1
+
+jobs:
+  build-and-test:    
+    docker:
+      - image: circleci/python:3.8.5
+        environment: 
+          MONGO_DETAILS: mongodb://localhost:27017
+      - image: circleci/mongo
+  
+    steps:
+      - checkout
+      - python/install-deps
+      - run:
+          command: cd user_crud && pytest
+          name: Test
+
+workflows:
+  main:
+    jobs:
+      - build-and-test
